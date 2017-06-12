@@ -1,8 +1,8 @@
 # TODO: Add comment
 # Author: yachenq
 ###############################################################################
-dataPath <- "D:/Users/yachenq/Documents/ML/Course Training/Data Science Program/Exploratory Data Analysis/project/week1/household_power_consumption.txt"
-pngPath <- "D:/Users/yachenq/Documents/ML/Course Training/Data Science Program/Exploratory Data Analysis/project/week1/plot1.png"
+dataPath <- "/project/week1/household_power_consumption.txt"
+pngPath <- "/project/week1/plot1.png"
 
 data <- read.csv(dataPath, sep = ";")
 data$Date <- as.Date(data$Date, format="%d/%m/%Y")
