@@ -59,3 +59,5 @@ subsetData <- subsetData[ , !(names(subsetData) %in% c("activity"))]
 
 tidyDataPath <- "/Users/Kobuta/Documents/R/Workspace/UCI HAR Dataset/tidy_data.txt"
 write.table(subsetData, tidyDataPath, row.names = F)
+
+https://github.com/spujadas/getting-and-cleaning-data-course-project/blob/master/tidy_data.txt
