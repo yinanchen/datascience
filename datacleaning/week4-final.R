@@ -43,7 +43,19 @@ featureData <- read.table(featureFilePath, col.names=c("featureNum","featureName
 
 ## Merge columns
 names(allData) <- featureData$featureName
+allData <- cbind(allData, subAllData, yAllData)
 
-#featureData$featureCode <- paste0("V", featureData$featureNum)
+## Filter by feature name
+featureData$featureCode <- paste0("V", featureData$featureNum)
 subsetFeatureData <- featureData[grepl("mean\\(\\)|std\\(\\)", featureData[,2]),]
-subsetData <- allData[,which(names(allData) %in% c("subject","activity",subsetFeatureData$featureCode))]
+subsetData <- allData[ ,which(names(allData) %in% c("subject","activity", as.character(subsetFeatureData$featureName)))]
+
+## Read activity label
+activityFilePath <- "/Users/Kobuta/Documents/R/Workspace/UCI HAR Dataset/activity_labels.txt"
+activityLabels <- read.table(activityFilePath, col.names=c("activityNum","activityName"))
+
+subsetData <- merge(subsetData, activityLabels, by.x = "activity", by.y = "activityNum")
+subsetData <- subsetData[ , !(names(subsetData) %in% c("activity"))]
+
+tidyDataPath <- "/Users/Kobuta/Documents/R/Workspace/UCI HAR Dataset/tidy_data.txt"
+write.table(subsetData, tidyDataPath, row.names = F)
