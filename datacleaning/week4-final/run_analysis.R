@@ -52,16 +52,13 @@ names(allData) <- featureData$featureName
 allData <- cbind(allData, subAllData, yAllData)
 
 ## Filter by feature name
-#featureData$featureCode <- paste0("V", featureData$featureNum)
 subsetFeatureData <- featureData[grepl("mean\\(\\)|std\\(\\)", featureData[,2]),]
 subsetData <- allData[ ,which(names(allData) %in% c("subject","activity", as.character(subsetFeatureData$featureName)))]
 
 ## Read activity label
 activityFilePath <- "/UCI HAR Dataset/activity_labels.txt"
 activityLabels <- read.table(activityFilePath, col.names=c("activityNum","activityName"))
-
 subsetData <- merge(subsetData, activityLabels, by.x = "activity", by.y = "activityNum")
-#subsetData <- subsetData[ , !(names(subsetData) %in% c("activity"))] #drop duplicate column
 
 ## a second, independent tidy data set with the average of each variable for each activity and each subject.
 tidyData <- subsetData %>%  group_by(subject, activity) %>% summarise_each(funs(mean))
