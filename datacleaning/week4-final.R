@@ -63,4 +63,4 @@ tidyData <- subsetData %>%  group_by(subject, activity) %>% summarise_each(funs(
 tidyDataPath <- "/Users/Kobuta/Documents/R/Workspace/UCI HAR Dataset/tidy_data.txt"
 write.table(tidyData, tidyDataPath, row.names = F)
 
-https://github.com/spujadas/getting-and-cleaning-data-course-project/blob/master/tidy_data.txt
+
