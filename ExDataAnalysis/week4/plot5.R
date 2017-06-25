@@ -6,9 +6,9 @@ library(plyr)
 library(ggplot2)
 
 # Read data
-scc_summary_data <- readRDS("D:/Users/yachenq/Documents/ML/Course Training/Data Science Program/Exploratory Data Analysis/project/week4/NEI_data/summarySCC_PM25.rds")
-scc_data <- readRDS("D:/Users/yachenq/Documents/ML/Course Training/Data Science Program/Exploratory Data Analysis/project/week4/NEI_data/Source_Classification_Code.rds")
-pngPath <- "D:/Users/yachenq/Documents/ML/Course Training/Data Science Program/Exploratory Data Analysis/project/week4/plot4.png"
+scc_summary_data <- readRDS("/project/week4/NEI_data/summarySCC_PM25.rds")
+scc_data <- readRDS("/project/week4/NEI_data/Source_Classification_Code.rds")
+pngPath <- "/project/week4/plot4.png"
 
 motor_scc <- scc_data[grepl('vehicle', scc_data$scc_data.Level.Two, ignore.case=T), ]
 merge_data <- merge(x=scc_summary_data, y=motor_scc, by="SCC")
