@@ -33,3 +33,7 @@ model <- train(classe ~ ., data = train, method = "rf", trControl = control)
   | 81 | 0.9998471 |    0.9998066 |
   
   Accuracy is pretty good, so let's do testing.
+* Step 4: prediction
+  ```R
+  predict(model, test)
+  ```
