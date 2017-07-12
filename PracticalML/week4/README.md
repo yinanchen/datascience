@@ -16,15 +16,17 @@ control <- trainControl(method = "cv", number = 5)
 model <- train(classe ~ ., data = train, method = "rf", trControl = control)
 ```
 * Step 3: examine model performance
-```R
-print(model)
-```
-Resampling: Cross-Validated (3 fold) 
-Summary of sample sizes: 13080, 13082, 13082 
-Resampling results across tuning parameters:
+  ```R
+  print(model)
+  ```
+  Resampling: Cross-Validated (3 fold) 
+  Summary of sample sizes: 13080, 13082, 13082 
+  Resampling results across tuning parameters:
 
-| mtry   |      Accuracy      |  Kappa |
-|----------|:-------------:|------:|
-| 2 |  0.9956684 | 0.9945210 |
-| 41 |    0.9998471   |   0.9998066 |
-| 81 | 0.9998471 |    0.9998066 |
+  | mtry   |      Accuracy      |  Kappa |
+  |----------|:-------------:|------:|
+  | 2 |  0.9956684 | 0.9945210 |
+  | 41 |    0.9998471   |   0.9998066 |
+  | 81 | 0.9998471 |    0.9998066 |
+  
+  Accuracy is pretty good, so let's do testing.
