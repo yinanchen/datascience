@@ -12,7 +12,7 @@ There are 160 columns in data set,  'classe' is label column with 5 classes: 'A'
 * Step 2:  Build classifier by random forest and use 3-folds cross-validation
 ```R
 set.seed(7826) 
-control <- trainControl(method = "cv", number = 5)
+control <- trainControl(method = "cv", number = 3)
 model <- train(classe ~ ., data = train, method = "rf", trControl = control)
 ```
 * Step 3: examine model performance
