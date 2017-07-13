@@ -5,7 +5,8 @@ Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible t
 There are 19622 rows and 160 columns in training data set.  
 'classe' is label column with 5 classes: 'A','B','C','D','E', others are feature columns.  
 41 feature columns' value nearly 98% are NA, so I removed these columns.
-(ex: max_roll_dumbbell, min_roll_dumbbell, amplitude_pitch_dumbbell....)  
+(ex: max_roll_dumbbell, min_roll_dumbbell, amplitude_pitch_dumbbell....) 
+Then, remove rows contain NA values.
 
 # Build classification model
 * Step 1: load library  
