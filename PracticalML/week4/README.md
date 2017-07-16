@@ -10,20 +10,20 @@ Then, remove rows contain NA values.
 
 # Build classification model
 * Step 1: load library  
- ```R
+```r
  library(caret)
  library(randomForest)
- ```
+```
 * Step 2:  Build classifier by random forest and use 3-folds cross-validation
-```R
+```r
 set.seed(7826) 
 control <- trainControl(method = "cv", number = 3)
 model <- train(classe ~ ., data = train, method = "rf", trControl = control)
 ```
 * Step 3: examine model performance
-  ```R
+```r
   print(model)
-  ```
+```
   Resampling: Cross-Validated (3 fold) 
   Summary of sample sizes: 13080, 13082, 13082 
   Resampling results across tuning parameters:
@@ -34,8 +34,11 @@ model <- train(classe ~ ., data = train, method = "rf", trControl = control)
   | 41 |    0.9998471   |   0.9998066 |
   | 81 | 0.9998471 |    0.9998066 |
   
-  Accuracy is pretty good, so let's do testing.
+  Accuracy is pretty good, so let's do testing.  
 * Step 4: prediction
-  ```R
+```R
   predict(model, test)
-  ```
+ ```
+# Compile HTML file
+  Rpub link
+  http://rpubs.com/yachen/291630
