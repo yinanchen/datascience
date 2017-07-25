@@ -14,13 +14,17 @@ Then, remove rows contain NA values.
  library(caret)
  library(randomForest)
 ```
-* Step 2:  Build classifier by random forest and use 3-folds cross-validation
+* Step 2:  Build classifier by random forest and use "3-folds" cross-validation
+K is a free number. 3,5,10 are popular number.
 ```r
 set.seed(7826) 
 control <- trainControl(method = "cv", number = 3)
 model <- train(classe ~ ., data = train, method = "rf", trControl = control)
 ```
 * Step 3: examine model performance
+The error rate can help you to know the model performance.
+Since K-fold cross validation were chosen, just evaluate the model through  
+classical index - Accuracy : the proportion of the total number of predictions that were correct.
 ```r
   print(model)
 ```
@@ -36,6 +40,7 @@ model <- train(classe ~ ., data = train, method = "rf", trControl = control)
   
   Accuracy is pretty good, so let's do testing.  
 * Step 4: prediction
+predict the testing set by built model.
 ```R
   predict(model, test)
  ```
